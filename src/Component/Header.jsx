@@ -1,21 +1,25 @@
 import React from 'react';
 import './Header.sass';
-import { Row, Col } from 'antd';
 
-const Header = (props) => {
+import { Layout, Menu } from 'antd';
+
+const { Header } = Layout;
+
+const Navbar = (props) => {
   return (
-    <div>
-      {/* <h1 className="header">{props.title}</h1> */}
-      <Row>
-        <Col xl={{span: 12}}>
-          {props.title}
-        </Col>
-        <Col xl={{span: 12}}>
-          Home
-        </Col>
-      </Row>
-      
-    </div>
+      <Layout className="layout">
+        <Header>
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            defaultSelectedKeys={['1']}
+            style={{ lineHeight: '64px' }}
+          >
+            <Menu.Item key="1">Students</Menu.Item>
+            <Menu.Item key="2">Coming Soon.</Menu.Item>
+          </Menu>
+        </Header>
+      </Layout>
   );
 }
 
@@ -28,4 +32,4 @@ const styleHeader = {
   fontSize: '20px',
 }
  
-export default Header;
+export default Navbar;

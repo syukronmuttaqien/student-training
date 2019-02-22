@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import 'antd/dist/antd.css';
-// import Students from './Component/Students';
-// import Header from './Component/Header';
+import Students from './Component/Students';
+import Header from './Component/Header';
 
 import Register from './Component/Register';
+import { Provider } from './Context';
 
 class App extends Component {
   render() {
@@ -29,33 +29,12 @@ class App extends Component {
     // );
 
     return (
-      <div>
-        {/* <Header title="Students' list" />
-        <Students 
-          name="Muhsin Sutanto"
-          email="sutantomuhsin@gmail.com"
-          phone="123456"
-        />
-
-        <Students 
-          name="Agung Prasetyo"
-          email="agungprasetyo@gmail.com"
-          phone="232332132"
-        />
-
-        <Students 
-          name="Syukron Muttaqien"
-          email="syukronmuttaqien@gmail.com"
-          phone="77777"
-        />
-
-        <Students 
-          name="Ningsih"
-          email="Ningsih@gmail.com"
-          phone="08665343123"
-        />   */}
-        <Register />
-      </div>
+      <Provider>
+        <div>
+          <Header title="Students" />
+          <Students />
+        </div>
+      </Provider>
     )
   }
 }

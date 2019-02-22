@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Student from './Student';
+import { Consumer } from '../Context';
 
 class Students extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {  }
-  }
+
+  
+
   render() { 
-    const { name, email, phone } = this.props; // Destructuring
-    return (  
-      <div>
-        <h2>{name}</h2>
-        <ul>
-          <li>{email}</li>
-          <li>{phone}</li>
-        </ul>
-      </div>
-    );
-  }
-}
+    return (
+    <Consumer>
+    {value => {
+      const { students } = value; // Destructuring
+      return students.map((student, index) => 
+        <Student
+          index = {index}
+          key = {student.id}
+          student = {student}
+        />
+      )
+      }
+    }
+    </Consumer>
+    )
+  }}
 
 Students.propTypes = {
-  name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired
+  // student: PropTypes.object.isRequired,
 }
  
 export default Students;
