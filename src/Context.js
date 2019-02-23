@@ -9,6 +9,12 @@ const reducer = (state, action) => {
       ...state,
       students: state.students.filter(student => student.id !== action.payload)
     }
+    case 'ADD_STUDENT':
+    console.log({payload: action.payload});
+    const { students } = state;
+    students.push({...action.payload, id: students.length + 1});
+    return { ...state, students}
+  
     default:
     return state;
   }
@@ -36,6 +42,7 @@ export class Provider extends Component {
         phone: 333333
       },
     ],
+    
     dispatch: action => {
       this.setState(state => reducer(state, action));
     }
